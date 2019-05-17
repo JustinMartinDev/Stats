@@ -69,7 +69,10 @@ public class Main {
 
     private static float calculVariableDiscriminante() {
 
-        float variableDiscri = 12/(listeValeurTotal.size()*(listeValeurTotal.size()+1));
+        for (Categorie categorie: listeCategorie) {
+            System.out.println(categorie.getName() + " Rank " + categorie.sumRank());
+        }
+
 
         float sumRi = 0f;
         for(Categorie categorie : listeCategorie){
@@ -78,8 +81,9 @@ public class Main {
 
         System.out.println(sumRi);
 
-        variableDiscri*=sumRi;
-        variableDiscri-=3*(listeValeurTotal.size()+1);
+        System.out.println(sumRi);
+        float variableDiscri=(12*sumRi)/(listeValeurTotal.size()* (listeValeurTotal.size()+1));
+        variableDiscri= variableDiscri-(3*(listeValeurTotal.size()+1));
         return variableDiscri;
     }
 
