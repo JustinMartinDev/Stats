@@ -50,7 +50,7 @@ public class Main {
         ChangeRankEqualsValue();
 
         float variableDiscriminante = calculVariableDiscriminante();
-        System.out.println(variableDiscriminante);
+        System.out.println("VariableDiscriminante = " + variableDiscriminante);
 
         float tauxErreur = 0f;
         System.out.println("Entrez t-alpha : ");
@@ -62,26 +62,15 @@ public class Main {
         else {
             System.out.println("On accepte H0");
         }
-
-        System.out.println(listeCategorie.get(0));
-
     }
 
     private static float calculVariableDiscriminante() {
-
-        for (Categorie categorie: listeCategorie) {
-            System.out.println(categorie.getName() + " Rank " + categorie.sumRank());
-        }
-
 
         float sumRi = 0f;
         for(Categorie categorie : listeCategorie){
             sumRi+=((categorie.sumRank()*categorie.sumRank())/categorie.getElements().size());
         }
 
-        System.out.println(sumRi);
-
-        System.out.println(sumRi);
         float variableDiscri=(12*sumRi)/(listeValeurTotal.size()* (listeValeurTotal.size()+1));
         variableDiscri= variableDiscri-(3*(listeValeurTotal.size()+1));
         return variableDiscri;
@@ -101,7 +90,6 @@ public class Main {
                    nbSame++;
                }
             }
-            System.out.println(sumRang/nbSame);
             element.setRang(sumRang/nbSame);
             float finalSumRang = sumRang;
             int finalNbSame = nbSame;
